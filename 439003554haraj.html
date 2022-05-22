@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>موقع حراج</title>
+
+    <style>
+        body{
+            direction: rtl;
+        }
+
+
+        .p{
+            text-align: center;
+            color: azure;
+            background-color: #0c7ecf;
+            font-family: 'Times New Roman', Times, serif
+        }
+
+        h1{
+            color: #9c9c9c;
+            font-weight: bold;
+        }
+
+        #city{
+            margin-right: 5%;
+            margin-top: 2%;
+        }
+
+        #number{
+            width: 300px;
+            font-size: large;
+        }
+
+        select{
+            width: 300px;
+            font-size: large;
+        }
+
+        input[type = 'submit']{
+            font-size: large;
+            margin-right: 5%;
+            color: red;
+
+        }
+
+        footer{
+            font-size: 25px;
+            background-color: rgb(241, 241, 239);
+            margin-left: 60%;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div>
+        <h1 class="p">حراج</h1>
+    </div>
+
+    <div>
+        <h1>التسجيل في الموقع</h1>
+        <hr>
+        <br>
+    </div>
+    <form >
+        <section>
+            <label for="number"> كم رقم جوالك :</label>
+            <input type="text" placeholder="ادخل رقم الجوال" pattern="[0-9]" name="number" id="number" required>
+            <br>
+        </section>
+
+        <section id="city">
+            <select name="Country" id="Country" required>
+                <option ></option>
+                <option>السعودية</option>
+                <option>الامارات</option>
+                <option>الكويت</option>
+            </select>
+        </section>
+        <br>
+        <section>
+            <input type="submit" value="تسجيل" onclick="Checked()">
+        </section>
+    </form>
+    <br>
+    <hr>
+    <br>
+    <footer>
+        <p>التسجيل في حراج يتطلب وجود رقم جوال جميع معلوماتك لدينا هيا امانة
+            <br>
+            في ذمتنا ونتعهد بالحفاظ عليها لمزيد من التفاصيل نرجو زيارة صفحتنا
+            <br>
+            معاهدة استخدام الموقع
+        </p>
+    </footer>
+
+    <script>
+         function Checked() {
+            var Country = document.getElementById("Country").value;
+
+            var number = document.getElementById("number").value;
+
+
+
+            if (number == '') {
+
+                alert('Number is Empty');
+
+            } else if (Country == 'السعودية') {
+                var rx = new RegExp("^[0]{1}[5]{1}[0-9]{8}$");
+                if (!rx.test(number)) {
+
+                    alert('Please Enter Number');
+                }
+
+
+
+            } else {
+                var rx = /^(00966|\+966)(\-| )([0-9]{8,11})$/;
+                if (!rx.test(number)) {
+
+                    alert('Please Enter Number');
+                }
+            }
+        }
+    </script>
+
+</body>
+</html>
